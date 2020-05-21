@@ -8,7 +8,7 @@ import * as S from './styles';
 const Home = () => {
     const [keyPress, setKeyPress] = useState('');
     const [banner, setBanner] = useState('');
-    const [hasFocus, setHasFocus] = useState({menu: false, featuredBanner: true, rowContent: false});
+    const [focusCtrl, setFocusCtrl] = useState({menu: false, featuredBanner: true, rowContent: false});
 
     const key = useCallback(({ key }) => {
         setKeyPress(key);
@@ -19,15 +19,15 @@ const Home = () => {
     }
 
     const menuExit = (lastFocusItem) => {
-        setHasFocus({
-            ...hasFocus,
+        setFocusCtrl({
+            ...focusCtrl,
             menu: false,
             [lastFocusItem]: true
         })
     };
 
       const goToMenu = (lastFocus) => {
-        setHasFocus({
+        setFocusCtrl({
             rowContent: false,
             menu: true,
             featuredBanner: false,
@@ -36,8 +36,8 @@ const Home = () => {
       };
 
       const goToRow = () => {
-        setHasFocus({
-            ...hasFocus,
+        setFocusCtrl({
+            ...focusCtrl,
             rowContent: true,
             featuredBanner: false,
             lastFocus: ''
@@ -45,8 +45,8 @@ const Home = () => {
       };
 
       const goToFeaturedBanner = () => {
-        setHasFocus({
-            ...hasFocus,
+        setFocusCtrl({
+            ...focusCtrl,
             featuredBanner: true,
             rowContent: false,
             lastFocus: ''
@@ -67,24 +67,24 @@ const Home = () => {
         <>
             <Menu 
                 keyPressed={keyPress} 
-                hasFocus={hasFocus.menu}
-                lastFocus={hasFocus.lastFocus}
+                focusCtrl={focusCtrl.menu}
+                lastFocus={focusCtrl.lastFocus}
                 closeMenu={menuExit} 
             />
             <S.Content>
-                {(hasFocus.featuredBanner || hasFocus.lastFocus === 'featuredBanner') &&
+                {(focusCtrl.featuredBanner || focusCtrl.lastFocus === 'featuredBanner') &&
                     <FeaturedBanner
                         keyPressed={keyPress} 
-                        hasFocus={hasFocus.featuredBanner}
+                        focusCtrl={focusCtrl.featuredBanner}
                         OpenMenu={goToMenu}
                         FocusRow={goToRow}
                     />
                 }
-                {(hasFocus.rowContent || hasFocus.lastFocus === 'rowContent') &&
+                {(focusCtrl.rowContent || focusCtrl.lastFocus === 'rowContent') &&
                     <Banner imageId={banner}/>
                 }
                 <RowContent
-                    hasFocus={hasFocus.rowContent}
+                    focusCtrl={focusCtrl.rowContent}
                     keyPressed={keyPress}
                     OpenMenu={goToMenu} 
                     FocusBanner={goToFeaturedBanner}

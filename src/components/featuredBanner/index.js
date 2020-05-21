@@ -4,7 +4,7 @@ import Banner from '../../assets/banner_cta.jpg'
 import FeaturedLogo from '../../assets/featured-logo.png'
 import { MdPlayArrow } from "react-icons/md";
 
-const FeaturedBanner = ({keyPressed, OpenMenu, hasFocus, FocusRow}) => {
+const FeaturedBanner = ({keyPressed, OpenMenu, focusCtrl, FocusRow}) => {
     const [buttonFocused, setButtonFocused] = useState(1);
     const [bannerButtons] = useState([
         {
@@ -20,7 +20,7 @@ const FeaturedBanner = ({keyPressed, OpenMenu, hasFocus, FocusRow}) => {
     ]);
 
     useEffect(() => {
-        if(hasFocus) {
+        if(focusCtrl) {
             if(keyPressed === 'ArrowRight' && buttonFocused < bannerButtons.length) {
                 setButtonFocused(buttonFocused + 1);
             }
@@ -33,7 +33,7 @@ const FeaturedBanner = ({keyPressed, OpenMenu, hasFocus, FocusRow}) => {
                 return OpenMenu('featuredBanner');
             }
         }
-      }, [keyPressed, buttonFocused, OpenMenu, FocusRow, hasFocus, bannerButtons]);
+      }, [keyPressed, buttonFocused, OpenMenu, FocusRow, focusCtrl, bannerButtons]);
 
     return(
         <S.Wrapper>
@@ -43,7 +43,7 @@ const FeaturedBanner = ({keyPressed, OpenMenu, hasFocus, FocusRow}) => {
                 <S.Title>De Stephen King: uma cidade é isolada do <br /> mundo misteriosamente</S.Title>
                 <S.WrapButtons>
                     {bannerButtons.map((item, index) =>
-                        <S.Button key={index} isActive={hasFocus && buttonFocused === item.id}>
+                        <S.Button key={index} isActive={focusCtrl && buttonFocused === item.id}>
                             {item.icon}
                             {item.name}
                         </S.Button>

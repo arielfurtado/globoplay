@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as S from './styles';
 import { MdHome, MdSearch, MdPlayCircleOutline, MdVideoLibrary, MdAccountCircle } from "react-icons/md";
 
-const Menu = ({keyPressed, hasFocus, closeMenu, lastFocus}) => {
+const Menu = ({keyPressed, focusCtrl, closeMenu, lastFocus}) => {
     const [menuItemFocus, setMenuItemFocus] = useState(1);
     const [navItems] = useState([
         {
@@ -34,7 +34,7 @@ const Menu = ({keyPressed, hasFocus, closeMenu, lastFocus}) => {
 
 
     useEffect(() => {
-      if(hasFocus) {
+      if(focusCtrl) {
         if(keyPressed === 'ArrowDown' && menuItemFocus < navItems.length) {
           setMenuItemFocus(menuItemFocus + 1);
         }
@@ -45,14 +45,14 @@ const Menu = ({keyPressed, hasFocus, closeMenu, lastFocus}) => {
           return closeMenu(lastFocus);
         }
       }
-      }, [keyPressed, menuItemFocus, navItems, closeMenu, hasFocus, lastFocus]);
+      }, [keyPressed, menuItemFocus, navItems, closeMenu, focusCtrl, lastFocus]);
 
     return(
-        <S.Nav focused={hasFocus} >
+        <S.Nav focused={focusCtrl} >
             <S.List id="navigation">
                 {navItems.map((item, index) => {
                     return (
-                        <S.ListItem key={index} id={item.id} isActive={menuItemFocus === item.id && hasFocus}>
+                        <S.ListItem key={index} id={item.id} isActive={menuItemFocus === item.id && focusCtrl}>
                             {item.icon}
                             <span>{item.name}</span>
                         </S.ListItem>

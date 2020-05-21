@@ -3,12 +3,12 @@ import * as S from './style';
 import Content from '../../mock';
 
 
-const RowContent = ({hasFocus, keyPressed, OpenMenu, FocusBanner, featuredImage}) => {
+const RowContent = ({focusCtrl, keyPressed, OpenMenu, FocusBanner, featuredImage}) => {
     const [itemFocus, setitemFocus] = useState(0);
 
 
     useEffect(() => {
-        if(hasFocus) {
+        if(focusCtrl) {
             if(keyPressed === 'ArrowRight' && itemFocus < (Content.items.length - 1)) {
                 setitemFocus(itemFocus + 1);
             }
@@ -27,14 +27,14 @@ const RowContent = ({hasFocus, keyPressed, OpenMenu, FocusBanner, featuredImage}
             document.getElementById('target-'+itemFocus).focus();
             return featuredImage(itemFocus);
         }
-      }, [keyPressed, itemFocus, hasFocus, OpenMenu, FocusBanner, featuredImage]);
+      }, [keyPressed, itemFocus, focusCtrl, OpenMenu, FocusBanner, featuredImage]);
 
     return(
-        <S.Wrapper active={hasFocus}>
+        <S.Wrapper active={focusCtrl}>
             <S.Tag>Novidades</S.Tag>
             <S.Cards >
                 {Content.items.map((item, index) =>
-                    <S.CardItem key={index} href='#' id={'target-' + index} isActive={hasFocus && itemFocus === index}>
+                    <S.CardItem key={index} href='#' id={'target-' + index} isActive={focusCtrl && itemFocus === index}>
                         <S.Media src={item.thumb} />
                     </S.CardItem>
                 )}
