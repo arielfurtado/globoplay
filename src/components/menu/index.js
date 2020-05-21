@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styles';
-import { MdHome, MdSearch, MdSurroundSound, MdVideoLibrary, MdAccountCircle } from "react-icons/md";
+import { MdHome, MdSearch, MdPlayCircleOutline, MdVideoLibrary, MdAccountCircle } from "react-icons/md";
 
 const Menu = ({keyPressed, hasFocus, closeMenu, lastFocus}) => {
     const [menuItemFocus, setMenuItemFocus] = useState(1);
@@ -17,7 +17,7 @@ const Menu = ({keyPressed, hasFocus, closeMenu, lastFocus}) => {
         },
         {
           id: 3,
-          icon: <MdSurroundSound/>,
+          icon: <MdPlayCircleOutline/>,
           name: "Agora na Globo"
         },
         {
