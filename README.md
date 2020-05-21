@@ -1,8 +1,8 @@
 ### Versões utilizadas:
 
-node 12.14.0
-yarn 1.21.1
-npm 6.13.4
+`node 12.14.0`
+`yarn 1.21.1`
+`npm 6.13.4`
 
 ### Bibliotecas  e plugins
 1. 	Styled-components
