@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Home from './pages/home';
+import ResetStyle from './globalStyle';
+import FavIcon from './assets/fav.ico'
+import { Helmet } from 'react-helmet';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <>
+    <Helmet>
+      <title>
+          GloboPlay | O mundo na palma da sua mão!
+      </title>
+      <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+          rel="stylesheet"
+      />
+      <link rel="icon" type="image/png" href={FavIcon} sizes="16x16" />
+    </Helmet>
+    
+    <React.StrictMode>
+      <Home />
+      <ResetStyle />
+    </React.StrictMode>
+  </>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
