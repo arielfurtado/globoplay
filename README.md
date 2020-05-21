@@ -5,8 +5,8 @@ yarn 1.21.1
 npm 6.13.4
 
 ### Bibliotecas  e plugins
-	Styled-components
-	 React-icons
+1. 	Styled-components
+2. 	React-icons
 
 ### Para executar o projeto
 
