@@ -9,7 +9,7 @@ ReactDOM.render(
   <>
     <Helmet>
       <title>
-        GloboPlay | O mundo na palma da sua mão!
+        Globoplay | Assista online aos programas da Globo
       </title>
       <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
