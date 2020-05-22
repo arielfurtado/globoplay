@@ -15,7 +15,7 @@ const Home = () => {
     lastFocus: '',
   });
 
-  const key = useCallback(({ key }) => {
+  const keyHandle = useCallback(({ key }) => {
     setKeyPress(key);
   }, []);
 
@@ -62,7 +62,7 @@ const Home = () => {
     setBanner(param);
   };
 
-  window.addEventListener('keydown', key);
+  window.addEventListener('keydown', keyHandle);
 
   useEffect(() => cleanKey(), [keyPress]);
 
