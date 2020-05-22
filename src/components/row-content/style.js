@@ -4,24 +4,30 @@ export const Wrapper = styled.div`
     position: absolute;
     bottom: ${(props) => (props.active ? '20px' : '0')};
     padding-left: 90px;
-    left: 20px;
+    left: 0;
     z-index: 2;
     overflow: hidden;
     max-width: 100%;
     transition: all 0.3s;
+    padding-left: 105px;
+`;
+export const FrameBox = styled.div`
+    width: 170px;
+    height: 250px;
+    position: absolute;
+    bottom: 0;
+    left: 105px;
+    z-index: 1;
+    border: 2px solid white;
+    transition: all 0.3s;
+    opacity: ${(props) => (props.showFrame ? '1' : '0')};
 `;
 export const Cards = styled.div`
     display: flex;
     align-items: center;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    margin-right: 45px;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar   {
-        display: none;
-    }
+    width: min-content;
+    transition: all 0.3s;
+    transform: translateX(${(props) => props.eixo}px);
 `;
 export const Wrap = styled.div`
     display: flex;
@@ -32,24 +38,14 @@ export const Wrap = styled.div`
 `;
 export const CardItem = styled.a`
     width: 170px;
-    display: block;
-    scroll-snap-align: end;
-    flex-shrink: 0;
+    display: flex;
     position: relative;
     background: black;
     margin-right: 15px;
     border: 2px solid transparent;
     transition: all 0.3s;
     transform-origin: center center;
-    transform: scale(0.95);
-    &:focus {
-        border: 2px solid white;
-    }
-    ${(props) => props.isActive && `
-        border: 2px solid white;
-        transform: scale(1);
-    `
-}
+    transform: scale(1);
 `;
 
 export const Media = styled.img`

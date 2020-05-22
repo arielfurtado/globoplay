@@ -4,11 +4,13 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background: #060406;
+    background: rgba(0,0,0, 0.95);
     position: absolute;
     max-width: min-content;
     z-index: 9;
+    transition: all 0.3s;
     ${(props) => props.focused && `
+        background: rgba(0,0,0, 1);
         li {
             span {
                 max-width: 150px;
