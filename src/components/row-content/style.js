@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     position: absolute;
-    bottom: ${props => props.active ? '20px': '0'};
+    bottom: ${(props) => (props.active ? '20px' : '0')};
     padding-left: 90px;
     left: 20px;
     z-index: 2;
@@ -45,11 +45,11 @@ export const CardItem = styled.a`
     &:focus {
         border: 2px solid white;
     }
-    ${props => props.isActive &&`
+    ${(props) => props.isActive && `
         border: 2px solid white;
         transform: scale(1);
     `
-    }
+}
 `;
 
 export const Media = styled.img`

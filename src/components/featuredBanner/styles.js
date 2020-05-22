@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
     display: flex;
     height: 100vh;
     padding-left: 20px;
@@ -8,12 +8,12 @@ export const Wrapper = styled.div `
     background: #060406;
 `;
 
-export const Media = styled.div `
+export const Media = styled.div`
     height: 100%;
     width: 100%;
     position: absolute;
     left: 0;
-    background: url(${props => props.background}) no-repeat top center;
+    background: url(${(props) => props.background}) no-repeat top center;
     background-size: cover;
     &:before {
         display: block;
@@ -26,7 +26,7 @@ export const Media = styled.div `
     }
 `;
 
-export const Content = styled.div `
+export const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,24 +38,24 @@ export const Content = styled.div `
     left: 20px;
 `;
 
-export const FeatureLogo = styled.img `
+export const FeatureLogo = styled.img`
     max-width: 200px;
     margin-bottom: 20px;
 `;
 
-export const Title = styled.h1 `
+export const Title = styled.h1`
     font-size: 20px;
     color: white;
     font-weight: 400;
 `;
 
-export const WrapButtons = styled.div `
+export const WrapButtons = styled.div`
     display: flex;
     align-items: center;
     margin-top: 20px;
 `;
 
-export const Button = styled.button `
+export const Button = styled.button`
     display: flex;
     align-items: center;
     font-size: 20px;
@@ -69,9 +69,9 @@ export const Button = styled.button `
     border-radius: 5px;
     margin-right: 10px;
     transition: all 0.3s;
-    ${props => props.isActive &&`
+    ${(props) => props.isActive && `
             background: white;
             color: black;
         `
-    }
+}
 `;

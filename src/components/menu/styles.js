@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Nav = styled.nav `
+export const Nav = styled.nav`
     display: flex;
     align-items: center;
     min-height: 100vh;
@@ -8,7 +8,7 @@ export const Nav = styled.nav `
     position: absolute;
     max-width: min-content;
     z-index: 9;
-    ${props => props.focused &&`
+    ${(props) => props.focused && `
         li {
             span {
                 max-width: 150px;
@@ -16,12 +16,12 @@ export const Nav = styled.nav `
         }
     `}
 `;
-export const List = styled.ul `
+export const List = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
 `;
-export const ListItem = styled.li `
+export const ListItem = styled.li`
     color: white;
     font-size: 20px;
     white-space: nowrap;
@@ -37,9 +37,9 @@ export const ListItem = styled.li `
         max-width: 0;
         overflow: hidden;
     }
-    ${props => props.isActive &&`
+    ${(props) => props.isActive && `
             background: white;
             color: black;
         `
-    }
+}
 `;
